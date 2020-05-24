@@ -1,42 +1,154 @@
-// Variables
+// ===
+// == Prealoder
 
-let nav = document.getElementById('nav');
-let menu = document.getElementById('enlaces');
-let abrir = document.getElementById('open');
-let botones = document.getElementsByClassName('btn-header');
-
-let cerrado = true;
+$(window).on('load', function(event) {
+    $('.preloader').delay(500).fadeOut(500);
+});
 
 
-$(function() {
-    $(document).scroll(function() {
-        var $nav = $('.navbar-fixed');
-        $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+//===== Sticky CAMBIA EL LOGO DE BLANCO A AZUL
+$(window).on('scroll', function(event) {
+
+    if (scroll < 20) {
+        $(".navbar-area").removeClass("sticky");
+        $(".navbar-area img").attr("src", "assets/images/logo.png");
+    } else {
+        $(".navbar-area").addClass("fondo");
+        $(".navbar-area img").attr("src", "assets/images/icologo.png");
+    }
+});
+//===== Sidebar
+
+$('[href="#side-menu-left"], .overlay-left').on('click', function(event) {
+    $('.sidebar-left, .overlay-left').addClass('open');
+});
+
+$('[href="#close"], .overlay-left').on('click', function(event) {
+    $('.sidebar-left, .overlay-left').removeClass('open');
+});
+
+
+//===== Slick
+
+$('.slider-items-active').slick({
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    speed: 800,
+    arrows: true,
+    prevArrow: '<span class="prev"><i class="lni lni-arrow-left"></i></span>',
+    nextArrow: '<span class="next"><i class="lni lni-arrow-right"></i></span>',
+    dots: true,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    responsive: [{
+            breakpoint: 1200,
+            settings: {
+                slidesToShow: 3,
+            }
+        },
+        {
+            breakpoint: 992,
+            settings: {
+                slidesToShow: 2,
+            }
+        },
+        {
+            breakpoint: 768,
+            settings: {
+                slidesToShow: 2,
+            }
+        },
+        {
+            breakpoint: 576,
+            settings: {
+                slidesToShow: 1,
+                arrows: false,
+            }
+        }
+    ]
+});
+
+
+//===== Isotope Project 4
+
+$('.container').imagesLoaded(function() {
+    var $grid = $('.grid').isotope({
+        // options
+        transitionDuration: '1s'
+    });
+
+    // filter items on button click
+    $('.portfolio-menu ul').on('click', 'li', function() {
+        var filterValue = $(this).attr('data-filter');
+        $grid.isotope({
+            filter: filterValue
+        });
+    });
+
+    //for menu active class
+    $('.portfolio-menu ul li').on('click', function(event) {
+        $(this).siblings('.active').removeClass('active');
+        $(this).addClass('active');
+        event.preventDefault();
     });
 });
 
 
+//===== slick Testimonial Four
 
-function apertura() {
-    if (cerrado) {
-        menu.style.width = '70vw';
-        cerrado = false;
-    } else {
-        menu.style.width = '0%';
-        menu.style.overflow = 'hidden';
-        cerrado = true;
-    }
-}
+$('.testimonial-active').slick({
+    dots: false,
+    arrows: true,
+    prevArrow: '<span class="prev"><i class="lni lni-arrow-left"></i></span>',
+    nextArrow: '<span class="next"><i class="lni lni-arrow-right"></i></span>',
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    speed: 800,
+    slidesToShow: 1,
+});
 
 
-window.addEventListener('click', function(e) {
-    console.log(e.target);
-    if (cerrado == false) {
-        let span = document.querySelector('span');
-        if (e.target !== span && e.target !== abrir) {
-            menu.style.width = '0%';
-            menu.style.overflow = 'hidden';
-            cerrado = true;
-        }
+//====== Magnific Popup
+
+$('.video-popup').magnificPopup({
+    type: 'iframe'
+        // other options
+});
+
+
+//===== Magnific Popup
+
+$('.image-popup').magnificPopup({
+    type: 'image',
+    gallery: {
+        enabled: true
     }
 });
+
+
+//===== Back to top
+
+// Show or hide the sticky footer button
+$(window).on('scroll', function(event) {
+    if ($(this).scrollTop() > 600) {
+        $('.back-to-top').fadeIn(200)
+    } else {
+        $('.back-to-top').fadeOut(200)
+    }
+});
+
+
+//Animate the scroll to yop
+$('.back-to-top').on('click', function(event) {
+    event.preventDefault();
+
+    $('html, body').animate({
+        scrollTop: 0,
+    }, 1500);
+});
+
+
+
+// ====
