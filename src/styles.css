@@ -17,7 +17,7 @@
 .contenedor p {
     font-size: 18px;
     font-weight: 300;
-    color: #156C38;
+    color: #60da28dc;
 }
 
 .botones-work {
@@ -30,13 +30,14 @@
     margin-left: 10px;
     margin-bottom: 15px;
     padding: 6px 12px;
-    border: 1px solid #156C38;
+    border: 1px solid #60da28dc;
     list-style: none;
-    color: #156C38;
+    color: #60da28dc;
+    border-radius: 35px;
 }
 
 .botones-work li:hover {
-    background: #156C38;
+    background: #60da28dc;
     color: #fff;
     cursor: pointer;
 }
@@ -2942,38 +2943,16 @@ nav .enlaces a:hover {
 ===========================*/
 
 .about-area {
+    background-color: #f4f6f7;
     padding-top: 59px;
     padding-bottom: 59px;
 }
 
 .about-area .about-title .sub-title {
-    font-size: 18px;
+    font-size: 40px;
     font-weight: 400;
     color: #60da28dc;
     text-transform: uppercase;
-}
-
-@media (max-width: 767px) {
-    .about-area .about-title .sub-title {
-        font-size: 16px;
-    }
-}
-
-.about-area .about-title .title {
-    font-size: 30px;
-    padding-top: 10px;
-}
-
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-    .about-area .about-title .title {
-        font-size: 26px;
-    }
-}
-
-@media (max-width: 767px) {
-    .about-area .about-title .title {
-        font-size: 22px;
-    }
 }
 
 @media (max-width: 767px) {
@@ -2983,8 +2962,15 @@ nav .enlaces a:hover {
 }
 
 .about-area .about-image img {
-    width: 55%;
-    height: 45%;
+    border-radius: 65%;
+    width: 350px;
+    height: auto;
+}
+
+.nombregreg {
+    font-size: 25px;
+    color: #69e02e;
+    font-style: italic;
 }
 
 
@@ -2997,8 +2983,8 @@ nav .enlaces a:hover {
 
 .testimonial-area {
     padding-top: 80px;
-    padding-bottom: 130px;
-    background-color: #60da28dc;
+    padding-bottom: 90px;
+    background-color: #ffffff;
 }
 
 .testimonial-area .testimonial-right-content {
@@ -3025,7 +3011,7 @@ nav .enlaces a:hover {
 }
 
 .single-testimonial {
-    background-color: #fff;
+    background-color: #f2f2f2;
     padding: 30px 30px 10px;
     border-radius: 50px;
 }
@@ -3074,8 +3060,8 @@ nav .enlaces a:hover {
 ===========================*/
 
 .contact-area {
-    padding-top: 120px;
-    padding-bottom: 130px;
+    padding-top: 25px;
+    padding-bottom: 15px;
     background-color: #f4f6f7;
 }
 
