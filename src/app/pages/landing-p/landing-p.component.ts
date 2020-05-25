@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { InfopaginaService } from 'src/app/Services/infopagina.service';
+import { LosserviciosService } from 'src/app/Services/losservicios.service';
 
 @Component({
   selector: 'app-landing-p',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingPComponent implements OnInit {
 
-  constructor() { }
+  constructor(public infopagina: InfopaginaService,
+              public losservis: LosserviciosService) {
+
+                
+               }
 
   ngOnInit() {
   }
