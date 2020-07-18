@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { InfopaginaService } from 'src/app/Services/infopagina.service';
 import { LosserviciosService } from 'src/app/Services/losservicios.service';
+import { NgwWowService } from 'ngx-wow' ;
 
 @Component({
   selector: 'app-landing-p',
@@ -10,12 +11,14 @@ import { LosserviciosService } from 'src/app/Services/losservicios.service';
 export class LandingPComponent implements OnInit {
 
   constructor(public infopagina: InfopaginaService,
-              public losservis: LosserviciosService) {
+              public losservis: LosserviciosService,
+              private wowService: NgwWowService) {
 
                 
                }
 
   ngOnInit() {
+    this.wowService.init();
   }
 
 }
