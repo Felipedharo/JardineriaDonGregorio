@@ -5,6 +5,5 @@ export interface InfoPagina {
     direccion?:string;
     pagina_autor?: string;
     facebook?: string;
-
   }
   
